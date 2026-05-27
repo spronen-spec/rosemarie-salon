@@ -7,6 +7,7 @@ const team = [
   { name: "Salie", role: "Facial Therapist", rating: 5.0, reviews: 4, bio: "Skincare expert with a gentle touch. Known for personalised treatments that leave skin radiant and refreshed." },
   { name: "Camyl", role: "Eyelash Technician", rating: 5.0, reviews: 4, bio: "Precision-focused lash specialist. Creates natural, fluttery looks tailored to each client's unique style." },
   { name: "Elena", role: "Massage Therapist", rating: 5.0, reviews: 2, bio: "Skilled in deep tissue and relaxation techniques. Brings calm and relief with every session." },
+  { name: "Aanu", role: "Nail Technician", rating: 4.0, reviews: 1, bio: "Creative artist with an eye for detail. Specialises in intricate nail designs and long-lasting finishes." },
 ];
 
 const TeamSection = () => {
