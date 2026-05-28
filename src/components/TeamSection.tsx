@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 
 const team = [
-  { name: "Moussa", role: "Manager", rating: 0, reviews: 0, bio: "Passionate leader who ensures every client leaves with a smile. Dedicated to creating a welcoming atmosphere." },
+  { name: "Moussa", role: "Senior Hair Dresser", rating: 0, reviews: 0, bio: "Expert in highlights, balayage, and hair extensions. Transforms hair with precision colour techniques and seamless extensions for a natural, radiant finish." },
   { name: "Fedaa", role: "Senior Hair Dresser", rating: 5.0, reviews: 1, bio: "Colour and styling expert who listens carefully. Delivers stunning results that match each client's vision." },
   { name: "Salie", role: "Facial Therapist", rating: 5.0, reviews: 4, bio: "Skincare expert with a gentle touch. Known for personalised treatments that leave skin radiant and refreshed." },
   { name: "Camyl", role: "Eyelash Technician", rating: 5.0, reviews: 4, bio: "Precision-focused lash specialist. Creates natural, fluttery looks tailored to each client's unique style." },
