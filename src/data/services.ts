@@ -261,3 +261,4 @@ export const WHATSAPP_NUMBER = "971588029012";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20Rosemarie%20Beauty%20Centre!%20I'd%20like%20to%20book%20an%20appointment.`;
 export const INSTAGRAM_URL = "https://www.instagram.com/rosemariebeautycentre/";
 export const ADDRESS = "Fortune Tower 1409, Cluster C, JLT, Dubai, UAE";
+export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/wCEMwPF7HB26S9Zf8";

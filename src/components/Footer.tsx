@@ -1,5 +1,5 @@
-import { Instagram, MapPin } from "lucide-react";
-import { INSTAGRAM_URL, ADDRESS, FRESHA_URL } from "@/data/services";
+import { Instagram, MapPin, Map } from "lucide-react";
+import { INSTAGRAM_URL, ADDRESS, FRESHA_URL, GOOGLE_MAPS_URL } from "@/data/services";
 
 const Footer = () => {
   return (
@@ -28,6 +28,9 @@ const Footer = () => {
               <MapPin size={14} className="mt-1 shrink-0" />
               {ADDRESS}
             </p>
+            <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-body text-sm text-primary-foreground/70 hover:text-accent transition-colors mt-2">
+              <Map size={14} /> Get Directions
+            </a>
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-primary-foreground/10 text-center">
