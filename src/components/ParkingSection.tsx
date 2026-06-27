@@ -15,8 +15,8 @@ const salonIcon = L.divIcon({
 });
 
 const SALON: [number, number] = [25.0689553, 55.1388336];
-const PARKING_RECOMMENDED: [number, number] = [25.0699, 55.138];
-const PARKING_ALTERNATIVE: [number, number] = [25.0686, 55.1367];
+const PARKING_RECOMMENDED: [number, number] = [25.0704, 55.1368];
+const PARKING_ALTERNATIVE: [number, number] = [25.0685, 55.1402];
 
 const ParkingSection = () => {
   // Remove default Leaflet marker icon path issue in Vite
