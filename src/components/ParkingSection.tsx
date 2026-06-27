@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Car, MapPin } from "lucide-react";
+import { Car, MapPin, Navigation } from "lucide-react";
 import { GOOGLE_MAPS_URL } from "@/data/services";
 
 const ParkingSection = () => {
@@ -17,125 +17,102 @@ const ParkingSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Where to Park</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Option 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {/* Recommended parking card */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="glass-card p-6"
+            className="glass-card overflow-hidden"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                <Car size={18} className="text-accent" />
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-foreground/10">
+              <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                <Car size={15} className="text-accent" />
               </div>
               <div>
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-accent mb-1">Recommended</p>
-                <h3 className="font-display text-xl text-foreground mb-2">RTA Parking — Cluster C Entrance</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  Just before you turn into Cluster C, there is an RTA surface parking lot on the <strong className="text-foreground">right-hand side</strong>. It has plenty of spaces even during busy hours and is a short walk to Fortune Tower.
-                </p>
+                <p className="font-body text-xs tracking-[0.15em] uppercase text-accent">Recommended</p>
+                <p className="font-display text-base text-foreground">RTA Parking — Before Cluster C Entrance</p>
               </div>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed px-5 py-4">
+              Just before turning into Cluster C, there is an RTA surface lot on the <strong className="text-foreground">right-hand side</strong>. Plenty of spaces even during busy hours — a short walk to Fortune Tower.
+            </p>
+            {/* Placeholder for screenshot 2 */}
+            <div className="mx-5 mb-5 rounded overflow-hidden bg-foreground/5 border border-dashed border-foreground/20 flex items-center justify-center h-48">
+              <p className="font-body text-xs text-muted-foreground/50 text-center px-4">
+                Satellite image coming soon
+              </p>
             </div>
           </motion.div>
 
-          {/* Option 2 */}
+          {/* Alternative parking card */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card p-6"
+            className="glass-card overflow-hidden"
           >
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center shrink-0">
-                <MapPin size={18} className="text-muted-foreground" />
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-foreground/10">
+              <div className="w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center shrink-0">
+                <MapPin size={15} className="text-muted-foreground" />
               </div>
               <div>
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">Alternative</p>
-                <h3 className="font-display text-xl text-foreground mb-2">RTA Parking — Ground Floor</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  There is also RTA parking on the ground floor directly beneath Fortune Tower. Convenient, but tends to fill up quickly during peak hours — try the entrance parking first.
-                </p>
+                <p className="font-body text-xs tracking-[0.15em] uppercase text-muted-foreground">Alternative · may be full</p>
+                <p className="font-display text-base text-foreground">RTA Parking — Ground Floor</p>
               </div>
+            </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed px-5 py-4">
+              Ground-level parking directly next to Fortune Tower (circled below). Convenient but tends to fill up quickly — try the entrance lot first.
+            </p>
+            {/* Satellite image with overlay */}
+            <div className="mx-5 mb-5 rounded overflow-hidden relative">
+              {/* Crop Google Maps chrome: clip 8% top and 5% bottom */}
+              <div className="overflow-hidden" style={{ clipPath: "inset(8% 0 5% 0)" }}>
+                <img
+                  src="/parking-alternative.png"
+                  alt="Satellite view of alternative parking near Fortune Tower, JLT Cluster C"
+                  className="w-full block"
+                />
+              </div>
+              {/* SVG annotations */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 87"
+                preserveAspectRatio="none"
+              >
+                {/* Red oval matching user's drawn circle (alt parking area) */}
+                <ellipse
+                  cx="32" cy="52" rx="16" ry="19"
+                  fill="rgba(220,38,38,0.15)"
+                  stroke="#dc2626"
+                  strokeWidth="0.7"
+                  strokeDasharray="2.5,1"
+                />
+                {/* Label background */}
+                <rect x="51" y="36" width="32" height="10" rx="1.5" fill="rgba(0,0,0,0.65)" />
+                <text x="67" y="43" textAnchor="middle" fontFamily="sans-serif" fontSize="4" fill="#f87171">
+                  Ground floor parking
+                </text>
+                {/* Connector line from label to circle */}
+                <line x1="51" y1="41" x2="46" y2="46" stroke="#dc2626" strokeWidth="0.5" />
+                {/* Rosemarie pin label */}
+                <rect x="56" y="22" width="28" height="9" rx="1.5" fill="rgba(0,0,0,0.65)" />
+                <text x="70" y="28.5" textAnchor="middle" fontFamily="sans-serif" fontSize="3.5" fill="#c9a070">
+                  Rosemarie Beauty Centre
+                </text>
+              </svg>
             </div>
           </motion.div>
         </div>
-
-        {/* Schematic diagram */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card p-6 md:p-10 mb-8"
-        >
-          <p className="font-body text-xs tracking-[0.2em] uppercase text-accent mb-6 text-center">Parking Guide</p>
-          <svg
-            viewBox="0 0 560 280"
-            className="w-full max-w-2xl mx-auto"
-            aria-label="Parking schematic for Rosemarie Beauty Centre, JLT Cluster C"
-          >
-            {/* ── Approach road (horizontal) ── */}
-            <rect x="0" y="108" width="400" height="44" rx="2" fill="#2a2520" />
-            {/* Road dashes */}
-            {[20, 80, 140, 200, 260, 320].map((x) => (
-              <rect key={x} x={x} y="128" width="40" height="4" rx="2" fill="#4a4540" />
-            ))}
-            {/* Direction arrow */}
-            <text x="30" y="105" fontFamily="sans-serif" fontSize="11" fill="#6b6560" letterSpacing="1">
-              APPROACHING CLUSTER C →
-            </text>
-
-            {/* ── Recommended parking (before turn) ── */}
-            <rect x="290" y="36" width="110" height="66" rx="4" fill="#1a1510" stroke="#c9a070" strokeWidth="2" />
-            <text x="345" y="62" textAnchor="middle" fontFamily="sans-serif" fontSize="22" fontWeight="bold" fill="#c9a070">P</text>
-            <text x="345" y="80" textAnchor="middle" fontFamily="sans-serif" fontSize="9" fill="#c9a070" letterSpacing="0.5">RECOMMENDED</text>
-            <text x="345" y="93" textAnchor="middle" fontFamily="sans-serif" fontSize="8" fill="#8a7a6a">Plenty of spaces</text>
-            {/* Arrow from road up to parking */}
-            <line x1="345" y1="108" x2="345" y2="102" stroke="#c9a070" strokeWidth="2" markerEnd="url(#arrowGold)" />
-            <polygon points="345,102 341,112 349,112" fill="#c9a070" />
-            {/* Label on road */}
-            <text x="318" y="168" fontFamily="sans-serif" fontSize="9" fill="#c9a070">Turn in here ↓</text>
-
-            {/* ── Turn-off road (vertical into cluster) ── */}
-            <rect x="310" y="152" width="44" height="128" rx="2" fill="#2a2520" />
-
-            {/* ── Cluster C label ── */}
-            <text x="332" y="200" textAnchor="middle" fontFamily="sans-serif" fontSize="9" fill="#6b6560" letterSpacing="1">CLUSTER C</text>
-
-            {/* ── Fortune Tower building ── */}
-            <rect x="380" y="175" width="90" height="90" rx="4" fill="#1a1510" stroke="#c9a070" strokeWidth="1.5" />
-            <text x="425" y="214" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fontWeight="bold" fill="#fff">Fortune</text>
-            <text x="425" y="228" textAnchor="middle" fontFamily="sans-serif" fontSize="10" fontWeight="bold" fill="#fff">Tower</text>
-            <text x="425" y="244" textAnchor="middle" fontFamily="sans-serif" fontSize="8" fill="#c9a070">1409, 14th Floor</text>
-            {/* Small "you are here" dot */}
-            <circle cx="425" cy="197" r="5" fill="#c9a070" />
-            <text x="425" y="193" textAnchor="middle" fontFamily="sans-serif" fontSize="7" fill="#c9a070">★</text>
-
-            {/* ── Ground floor parking (alternative) ── */}
-            <rect x="480" y="195" width="75" height="55" rx="4" fill="#1a1510" stroke="#4a4540" strokeWidth="1.5" strokeDasharray="5,3" />
-            <text x="517" y="218" textAnchor="middle" fontFamily="sans-serif" fontSize="18" fontWeight="bold" fill="#4a4540">P</text>
-            <text x="517" y="233" textAnchor="middle" fontFamily="sans-serif" fontSize="8" fill="#4a4540">Ground floor</text>
-            <text x="517" y="243" textAnchor="middle" fontFamily="sans-serif" fontSize="7" fill="#6b5a4a">(often full)</text>
-
-            {/* ── Legend ── */}
-            <rect x="4" y="210" width="12" height="12" rx="2" fill="#c9a070" />
-            <text x="22" y="221" fontFamily="sans-serif" fontSize="10" fill="#c9a070">Recommended parking</text>
-            <rect x="4" y="230" width="12" height="12" rx="2" fill="none" stroke="#4a4540" strokeWidth="1.5" strokeDasharray="4,2" />
-            <text x="22" y="241" fontFamily="sans-serif" fontSize="10" fill="#6b6560">Alternative (may be full)</text>
-            <circle cx="10" cy="257" r="5" fill="#c9a070" />
-            <text x="22" y="261" fontFamily="sans-serif" fontSize="10" fill="#c9a070">Rosemarie Beauty Centre</text>
-          </svg>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
             href={GOOGLE_MAPS_URL}
@@ -143,8 +120,8 @@ const ParkingSection = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-accent transition-colors border border-foreground/20 hover:border-accent px-6 py-3"
           >
-            <MapPin size={16} />
-            Open in Google Maps
+            <Navigation size={16} />
+            Get directions to Fortune Tower
           </a>
         </motion.div>
       </div>
