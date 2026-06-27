@@ -5,6 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import GallerySection from "@/components/GallerySection";
 import TeamSection from "@/components/TeamSection";
 import ReviewsSection from "@/components/ReviewsSection";
+import InstagramSection from "@/components/InstagramSection";
+import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -19,6 +21,8 @@ const Index = () => {
       <GallerySection />
       <TeamSection />
       <ReviewsSection />
+      <InstagramSection />
+      <FAQSection />
       <CtaSection />
       <Footer />
       <WhatsAppFab />
