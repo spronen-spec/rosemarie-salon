@@ -85,7 +85,7 @@ export const services: Service[] = [
     duration: "30 min – 2 hr",
     image: serviceHair,
     therapists: [
-      { name: "Wesam", role: "Senior Hairdresser", rating: 5.0, reviews: 0, avatar: "" },
+      { name: "Moussa", role: "Senior Hair Dresser", rating: 0, reviews: 0, avatar: "" },
       { name: "Fedaa", role: "Senior Hair Dresser", rating: 5.0, reviews: 1, avatar: "" },
     ],
     subServices: [
