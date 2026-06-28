@@ -40,10 +40,10 @@ const ServicesSection = () => {
                   />
                   <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/10 transition-colors" />
                 </div>
-                <div className="p-3 md:p-6 flex flex-col flex-1">
-                  <h3 className="font-display text-base md:text-2xl text-foreground mb-1 md:mb-2 min-h-[3rem] md:min-h-[4.5rem]">{service.name}</h3>
-                  <p className="font-body text-xs text-muted-foreground mb-2 md:mb-4 hidden sm:block flex-1">{service.shortDescription}</p>
-                  <div className="flex items-center justify-end mt-auto">
+                <div className="p-2 md:p-4 flex flex-col flex-1">
+                  <h3 className="font-display text-base md:text-2xl text-foreground mb-1 min-h-[2.5rem] md:min-h-[3.5rem]">{service.name}</h3>
+                  <p className="font-body text-xs text-muted-foreground mb-1 md:mb-2 hidden sm:block flex-1">{service.shortDescription}</p>
+                  <div className="flex items-center justify-end mt-auto pt-1">
                     <span className="flex items-center gap-1 text-accent font-body text-[10px] tracking-wider uppercase group-hover:gap-2 transition-all">
                       View Details <ArrowRight size={10} />
                     </span>
