@@ -50,7 +50,7 @@ const ReviewsSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {reviews.map((review, index) => (
             <motion.div
               key={review.name}
@@ -58,17 +58,17 @@ const ReviewsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="glass-card p-6 flex flex-col gap-3"
+              className="glass-card p-3 md:p-5 flex flex-col gap-2"
             >
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5">
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={12} className="fill-accent text-accent" />
+                  <Star key={i} size={10} className="fill-accent text-accent" />
                 ))}
               </div>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed flex-1">"{review.text}"</p>
+              <p className="font-body text-xs text-muted-foreground leading-relaxed flex-1">"{review.text}"</p>
               <div>
-                <p className="font-body text-sm font-medium text-foreground">{review.name}</p>
-                <p className="font-body text-xs text-accent tracking-wider uppercase">{review.service}</p>
+                <p className="font-body text-xs font-medium text-foreground">{review.name}</p>
+                <p className="font-body text-[10px] text-accent tracking-wider uppercase">{review.service}</p>
               </div>
             </motion.div>
           ))}
