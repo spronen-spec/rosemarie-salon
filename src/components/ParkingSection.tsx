@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Navigation } from "lucide-react";
 import { GOOGLE_MAPS_URL } from "@/data/services";
 
-const ParkingSection = () => {
+const ParkingSection = ({ className = "" }: { className?: string }) => {
   return (
-    <section className="section-padding bg-background">
+    <section className={`section-padding bg-background ${className}`}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

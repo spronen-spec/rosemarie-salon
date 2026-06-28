@@ -20,8 +20,10 @@ const Index = () => {
       <GallerySection />
       <TeamSection />
       <ReviewsSection />
-      <LocationMapSection />
-      <ParkingSection />
+      <div className="lg:flex lg:items-stretch">
+        <LocationMapSection className="lg:w-1/2 lg:flex-shrink-0" />
+        <ParkingSection className="lg:w-1/2" />
+      </div>
       <FAQSection />
       <AboutSection />
       <Footer />
