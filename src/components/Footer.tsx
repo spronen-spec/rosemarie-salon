@@ -4,18 +4,6 @@ import { INSTAGRAM_URL, ADDRESS, FRESHA_URL, GOOGLE_MAPS_URL } from "@/data/serv
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="w-full h-64 md:h-80">
-        <iframe
-          title="Rosemarie Beauty Centre location"
-          src="https://maps.google.com/maps?q=25.0689553,55.1388336&z=17&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="100%"
-          style={{ border: 0, display: "block" }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>

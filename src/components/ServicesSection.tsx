@@ -18,7 +18,7 @@ const ServicesSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Our Services</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -31,7 +31,7 @@ const ServicesSection = () => {
                 to={`/service/${service.id}`}
                 className="group block glass-card overflow-hidden hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-28 sm:h-40 md:h-52 lg:h-64 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
@@ -44,13 +44,13 @@ const ServicesSection = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl text-foreground mb-2">{service.name}</h3>
-                  <p className="font-body text-sm text-muted-foreground mb-4">{service.shortDescription}</p>
+                <div className="p-3 md:p-6">
+                  <h3 className="font-display text-base md:text-2xl text-foreground mb-1 md:mb-2">{service.name}</h3>
+                  <p className="font-body text-xs text-muted-foreground mb-2 md:mb-4 hidden sm:block">{service.shortDescription}</p>
                   <div className="flex items-center justify-between">
-                    <span className="font-body text-xs text-muted-foreground">{service.duration}</span>
+                    <span className="font-body text-xs text-muted-foreground hidden md:block">{service.duration}</span>
                     <span className="flex items-center gap-1 text-accent font-body text-xs tracking-wider uppercase group-hover:gap-2 transition-all">
-                      View Details <ArrowRight size={14} />
+                      <span className="hidden sm:inline">View Details</span> <ArrowRight size={12} />
                     </span>
                   </div>
                 </div>

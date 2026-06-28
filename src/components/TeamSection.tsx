@@ -25,7 +25,7 @@ const TeamSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Meet the Team</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -33,14 +33,14 @@ const TeamSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="glass-card p-6 text-center"
+              className="glass-card p-3 md:p-6 text-center"
             >
-              <div className="w-16 h-16 rounded-full gold-gradient mx-auto mb-4 flex items-center justify-center">
-                <span className="font-display text-2xl text-accent-foreground">{member.name[0]}</span>
+              <div className="w-10 h-10 md:w-16 md:h-16 rounded-full gold-gradient mx-auto mb-2 md:mb-4 flex items-center justify-center">
+                <span className="font-display text-lg md:text-2xl text-accent-foreground">{member.name[0]}</span>
               </div>
-              <h3 className="font-display text-xl text-foreground mb-1">{member.name}</h3>
-              <p className="font-body text-xs text-muted-foreground tracking-wider uppercase mb-2">{member.role}</p>
-              <p className="font-body text-xs text-muted-foreground/80 leading-relaxed mb-3">{member.bio}</p>
+              <h3 className="font-display text-base md:text-xl text-foreground mb-1">{member.name}</h3>
+              <p className="font-body text-xs text-muted-foreground tracking-wider uppercase mb-1 md:mb-2 leading-tight">{member.role}</p>
+              <p className="font-body text-xs text-muted-foreground/80 leading-relaxed mb-3 hidden lg:block">{member.bio}</p>
             </motion.div>
           ))}
         </div>

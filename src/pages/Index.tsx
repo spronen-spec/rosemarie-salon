@@ -4,9 +4,9 @@ import ServicesSection from "@/components/ServicesSection";
 import GallerySection from "@/components/GallerySection";
 import TeamSection from "@/components/TeamSection";
 import ReviewsSection from "@/components/ReviewsSection";
-import FAQSection from "@/components/FAQSection";
+import LocationMapSection from "@/components/LocationMapSection";
 import ParkingSection from "@/components/ParkingSection";
-import CtaSection from "@/components/CtaSection";
+import FAQSection from "@/components/FAQSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -20,9 +20,9 @@ const Index = () => {
       <GallerySection />
       <TeamSection />
       <ReviewsSection />
-      <FAQSection />
+      <LocationMapSection />
       <ParkingSection />
-      <CtaSection />
+      <FAQSection />
       <AboutSection />
       <Footer />
       <WhatsAppFab />
