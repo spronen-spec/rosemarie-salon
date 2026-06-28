@@ -59,12 +59,12 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-2 gap-3 md:gap-4"
           >
             {infoItems.map((item) => {
               const Icon = item.icon;
               const content = (
-                <div className="glass-card p-6 hover:shadow-md transition-shadow">
+                <div className="glass-card p-3 md:p-6 hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center mb-4">
                     <Icon size={18} className="text-accent-foreground" />
                   </div>

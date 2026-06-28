@@ -1,35 +1,8 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "lucide-react";
-import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import { GOOGLE_MAPS_URL } from "@/data/services";
 
-// Custom pin icon for the salon
-const salonIcon = L.divIcon({
-  className: "",
-  html: `<div style="width:14px;height:14px;background:#c9a070;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.5)"></div>`,
-  iconSize: [14, 14],
-  iconAnchor: [7, 7],
-});
-
-const SALON: [number, number] = [25.0689553, 55.1388336];
-const PARKING_RECOMMENDED: [number, number] = [25.0704, 55.1368];
-const PARKING_ALTERNATIVE: [number, number] = [25.0685, 55.1402];
-
 const ParkingSection = () => {
-  // Remove default Leaflet marker icon path issue in Vite
-  useEffect(() => {
-    // @ts-ignore
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-      iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-      shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-    });
-  }, []);
-
   return (
     <section className="section-padding bg-background">
       <div className="max-w-5xl mx-auto">
@@ -38,7 +11,7 @@ const ParkingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-accent mb-4">Getting Here</p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Where to Park</h2>
@@ -46,86 +19,68 @@ const ParkingSection = () => {
 
         {/* Legend */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-6 mb-6"
+          className="flex flex-wrap justify-center gap-6 mb-6 font-body text-sm"
         >
           <div className="flex items-center gap-2">
-            <span className="w-4 h-4 rounded-full border-2 border-emerald-500 bg-emerald-500/20 inline-block" />
-            <span className="font-body text-sm text-foreground">Recommended — plenty of spaces</span>
+            <span className="w-5 h-5 rounded-full border-2 border-orange-500 bg-orange-500/20 inline-flex items-center justify-center text-orange-500 font-bold text-xs">A</span>
+            <span className="text-foreground">Ground-level RTA parking — may be busy</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-4 h-4 rounded-full border-2 border-red-500 bg-red-500/20 inline-block" />
-            <span className="font-body text-sm text-muted-foreground">Alternative — may be full in peak hours</span>
+            <span className="w-5 h-5 rounded-full border-2 border-orange-500 bg-orange-500/20 inline-flex items-center justify-center text-orange-500 font-bold text-xs">B</span>
+            <span className="text-foreground">Surface lot before Cluster C — less busy</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-4 h-4 rounded-full bg-[#c9a070] inline-block" />
-            <span className="font-body text-sm text-accent">Rosemarie Beauty Centre</span>
+            <span className="text-accent">Rosemarie Beauty Centre</span>
           </div>
         </motion.div>
 
-        {/* Map */}
+        {/* Map image with SVG overlay */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="rounded overflow-hidden shadow-lg mb-8"
-          style={{ height: "420px" }}
+          className="relative rounded overflow-hidden shadow-lg mb-8"
         >
-          <MapContainer
-            center={[25.0693, 55.1378]}
-            zoom={17}
-            style={{ height: "100%", width: "100%" }}
-            scrollWheelZoom={false}
+          <img
+            src="/parking-map.png"
+            alt="Parking map for Rosemarie Beauty Centre, JLT Cluster C"
+            className="w-full block"
+          />
+          {/* SVG overlay — coordinates match 901×552 source, scale with image */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 901 552"
+            preserveAspectRatio="xMidYMid meet"
           >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+            {/* A1 — near Palladium */}
+            <ellipse cx="811" cy="314" rx="81" ry="76"
+              fill="rgba(234,88,12,0.15)" stroke="rgb(234,88,12)" strokeWidth="3" />
+            <text x="811" y="322" textAnchor="middle" fontFamily="Arial" fontSize="22"
+              fontWeight="bold" fill="rgb(234,88,12)">A</text>
 
-            {/* Recommended parking — green */}
-            <Circle
-              center={PARKING_RECOMMENDED}
-              radius={45}
-              pathOptions={{ color: "#10b981", fillColor: "#10b981", fillOpacity: 0.25, weight: 2.5 }}
-            >
-              <Popup>
-                <strong style={{ color: "#059669" }}>Recommended Parking</strong><br />
-                RTA surface lot just before Cluster C entrance on the right.<br />
-                <em>Plenty of spaces even at peak hours.</em>
-              </Popup>
-            </Circle>
+            {/* A2 — near Fortune Tower */}
+            <ellipse cx="651" cy="487" rx="86" ry="69"
+              fill="rgba(234,88,12,0.15)" stroke="rgb(234,88,12)" strokeWidth="3" />
+            <text x="651" y="495" textAnchor="middle" fontFamily="Arial" fontSize="22"
+              fontWeight="bold" fill="rgb(234,88,12)">A</text>
 
-            {/* Alternative parking — red */}
-            <Circle
-              center={PARKING_ALTERNATIVE}
-              radius={60}
-              pathOptions={{ color: "#ef4444", fillColor: "#ef4444", fillOpacity: 0.2, weight: 2.5 }}
-            >
-              <Popup>
-                <strong style={{ color: "#dc2626" }}>Alternative Parking</strong><br />
-                Ground-level RTA lot next to Fortune Tower.<br />
-                <em>May fill up quickly during busy hours.</em>
-              </Popup>
-            </Circle>
+            {/* Rosemarie gold dot inside A2 */}
+            <circle cx="557" cy="452" r="17"
+              fill="rgba(201,160,112,0.75)" stroke="rgb(201,160,112)" strokeWidth="2.5" />
 
-            {/* Salon marker */}
-            <Marker position={SALON} icon={salonIcon}>
-              <Popup>
-                <strong>Rosemarie Beauty Centre</strong><br />
-                Fortune Tower, Office 1409, Cluster C<br />
-                14th Floor
-              </Popup>
-            </Marker>
-          </MapContainer>
+            {/* B — surface lot */}
+            <ellipse cx="243" cy="425" rx="95" ry="87"
+              fill="rgba(234,88,12,0.15)" stroke="rgb(234,88,12)" strokeWidth="3" />
+            <text x="243" y="433" textAnchor="middle" fontFamily="Arial" fontSize="22"
+              fontWeight="bold" fill="rgb(234,88,12)">B</text>
+          </svg>
         </motion.div>
-
-        <p className="font-body text-xs text-muted-foreground/50 text-center mb-6">
-          Click on any highlighted area for details. Map circles are approximate — adjust by tapping.
-        </p>
 
         <motion.div
           initial={{ opacity: 0 }}
