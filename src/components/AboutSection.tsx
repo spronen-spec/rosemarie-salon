@@ -64,7 +64,7 @@ const AboutSection = () => {
             {infoItems.map((item) => {
               const Icon = item.icon;
               const content = (
-                <div className="glass-card p-3 md:p-6 hover:shadow-md transition-shadow">
+                <div className="glass-card p-3 md:p-6 hover:shadow-md transition-shadow h-full">
                   <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center mb-4">
                     <Icon size={18} className="text-accent-foreground" />
                   </div>
@@ -74,11 +74,11 @@ const AboutSection = () => {
               );
 
               return item.link ? (
-                <a key={item.title} href={item.link} target="_blank" rel="noopener noreferrer">
+                <a key={item.title} href={item.link} target="_blank" rel="noopener noreferrer" className="h-full block">
                   {content}
                 </a>
               ) : (
-                <div key={item.title}>{content}</div>
+                <div key={item.title} className="h-full">{content}</div>
               );
             })}
           </motion.div>
