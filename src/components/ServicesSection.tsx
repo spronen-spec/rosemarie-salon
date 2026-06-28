@@ -38,19 +38,13 @@ const ServicesSection = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/10 transition-colors" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="font-body text-xs tracking-wider uppercase px-3 py-1.5 bg-background/90 backdrop-blur-sm text-foreground rounded-sm">
-                      {service.price}
-                    </span>
-                  </div>
                 </div>
                 <div className="p-3 md:p-6">
                   <h3 className="font-display text-base md:text-2xl text-foreground mb-1 md:mb-2">{service.name}</h3>
                   <p className="font-body text-xs text-muted-foreground mb-2 md:mb-4 hidden sm:block">{service.shortDescription}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="font-body text-xs text-muted-foreground hidden md:block">{service.duration}</span>
+                  <div className="flex items-center justify-end">
                     <span className="flex items-center gap-1 text-accent font-body text-xs tracking-wider uppercase group-hover:gap-2 transition-all">
-                      <span className="hidden sm:inline">View Details</span> <ArrowRight size={12} />
+                      View Details <ArrowRight size={12} />
                     </span>
                   </div>
                 </div>
