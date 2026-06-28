@@ -25,7 +25,7 @@ const TeamSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Meet the Team</h2>
         </motion.div>
 
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -40,7 +40,7 @@ const TeamSection = () => {
               </div>
               <h3 className="font-display text-base md:text-xl text-foreground mb-1">{member.name}</h3>
               <p className="font-body text-xs text-muted-foreground tracking-wider uppercase mb-1 md:mb-2 leading-tight">{member.role}</p>
-              <p className="font-body text-xs text-muted-foreground/80 leading-relaxed mb-3 hidden lg:block">{member.bio}</p>
+              <p className="font-body text-xs text-muted-foreground/80 leading-relaxed mb-3 hidden sm:block">{member.bio}</p>
             </motion.div>
           ))}
         </div>
