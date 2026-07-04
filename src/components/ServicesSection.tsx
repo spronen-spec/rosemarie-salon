@@ -18,7 +18,7 @@ const ServicesSection = () => {
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Our Services</h2>
         </motion.div>
 
-        <div className="grid grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -36,6 +36,7 @@ const ServicesSection = () => {
                   <img
                     src={service.image}
                     alt={service.name}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-charcoal/10 transition-colors" />

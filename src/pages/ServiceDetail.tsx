@@ -13,7 +13,35 @@ const ServiceDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+    if (service) {
+      document.title = `${service.name} in JLT Dubai | Rosemarie Beauty Centre`;
+      document.querySelector('meta[name="description"]')?.setAttribute(
+        "content",
+        `${service.shortDescription} at Rosemarie Beauty Centre, JLT Dubai. ${service.description} Book today from ${service.price}.`
+      );
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute("href", `https://rosemariebeautycentre.ae/service/${service.id}`);
+
+      const schemaId = "service-schema";
+      document.getElementById(schemaId)?.remove();
+      const script = document.createElement("script");
+      script.id = schemaId;
+      script.type = "application/ld+json";
+      script.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rosemariebeautycentre.ae/" },
+          { "@type": "ListItem", "position": 2, "name": service.name, "item": `https://rosemariebeautycentre.ae/service/${service.id}` }
+        ]
+      });
+      document.head.appendChild(script);
+    }
+    return () => {
+      document.title = "Rosemarie Beauty Centre | Salon & Spa in Jumeirah Lakes Towers, Dubai";
+      document.getElementById("service-schema")?.remove();
+    };
+  }, [id, service]);
 
   if (!service) {
     return (

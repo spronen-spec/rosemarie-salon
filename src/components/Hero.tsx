@@ -61,12 +61,12 @@ const Hero = () => {
           >
             Book Appointment
           </a>
-          <button
-            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+          <a
+            href="#services"
             className="font-body text-sm tracking-widest uppercase px-8 py-3.5 border border-cream/30 text-cream rounded-sm hover:bg-cream/10 transition-colors"
           >
             Our Services
-          </button>
+          </a>
         </motion.div>
 
         <motion.p

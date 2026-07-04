@@ -58,6 +58,7 @@ const GallerySection = () => {
               <img
                 src={img.src}
                 alt={img.alt}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors flex items-center justify-center">
