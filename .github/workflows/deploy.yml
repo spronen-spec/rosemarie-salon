@@ -10,21 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - uses: oven-sh/setup-bun@v1
       
       - name: Install dependencies
-        run: npm ci
+        run: bun install
       
       - name: Build
-        run: npm run build
-      
-      - name: Install Vercel CLI
-        run: npm install -g vercel
+        run: bun run build
       
       - name: Deploy to Vercel
-        run: vercel deploy --prod
+        run: bunx vercel deploy --prod
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
