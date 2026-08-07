@@ -1,0 +1,7 @@
+{
+  "projectId": "prj_rosemarie_salon",
+  "orgId": "ronen-s-projects2",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}

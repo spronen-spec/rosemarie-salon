@@ -19,7 +19,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-gold-light mb-6"
         >
-          Beauty & Wellness Centre — Dubai
+          Beauty & Wellness Centre — Dubai JLT
         </motion.p>
 
         <motion.h1
@@ -75,7 +75,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mt-8 font-body text-xs tracking-wider text-cream/50"
         >
-          ✨ Starting from 99 AED · Card | Tabby | Cash
+          ✨ Starting from 99 AED · Card | Tabby | Cash · Walk-ins welcome
         </motion.p>
       </div>
     </section>
