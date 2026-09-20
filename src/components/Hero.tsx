@@ -63,9 +63,6 @@ const Hero = () => {
           <span className="font-body text-[10px] tracking-[0.2em] uppercase rounded-full border border-cream/30 bg-cream/5 px-3 py-2 text-cream/90">
             Open daily 10am–10pm
           </span>
-          <span className="font-body text-[10px] tracking-[0.2em] uppercase rounded-full border border-gold/40 bg-gold/10 px-3 py-2 text-gold-light">
-            From AED 99
-          </span>
         </motion.div>
 
         <motion.div
@@ -90,14 +87,6 @@ const Hero = () => {
           </a>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-8 font-body text-xs tracking-wider text-cream/65"
-        >
-          ✨ Starting from 99 AED · Open daily 10am–10pm · Card | Tabby | Cash
-        </motion.p>
       </div>
     </section>
   );
