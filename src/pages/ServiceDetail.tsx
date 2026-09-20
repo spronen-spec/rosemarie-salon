@@ -17,7 +17,7 @@ const ServiceDetail = () => {
       document.title = `${service.name} in JLT Dubai | Rosemarie Beauty Centre`;
       document.querySelector('meta[name="description"]')?.setAttribute(
         "content",
-        `${service.shortDescription} at Rosemarie Beauty Centre, JLT Dubai. ${service.description} Book today from ${service.price}.`
+        `${service.shortDescription} at Rosemarie Beauty Centre, JLT Dubai. ${service.description} Book today.`
       );
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) canonical.setAttribute("href", `https://rosemariebeautycentre.ae/service/${service.id}`);
@@ -70,7 +70,7 @@ const ServiceDetail = () => {
             className="text-center px-6"
           >
             <h1 className="font-display text-4xl md:text-6xl text-cream mb-3">{service.name}</h1>
-            <p className="font-body text-sm text-cream/70">{service.price} · {service.duration}</p>
+            <p className="font-body text-sm text-cream/70">{service.duration}</p>
           </motion.div>
         </div>
       </section>
@@ -94,7 +94,7 @@ const ServiceDetail = () => {
             {/* Sub-services / Price List */}
             {service.subServices.length > 0 && (
               <div className="mb-12">
-                <h2 className="font-display text-2xl text-foreground mb-6">Services & Prices</h2>
+                <h2 className="font-display text-2xl text-foreground mb-6">Services</h2>
                 <div className="space-y-1">
                   {service.subServices.map((sub, index) => (
                     <a
@@ -113,7 +113,7 @@ const ServiceDetail = () => {
                           <Clock size={13} />
                           <span className="font-body text-xs">{sub.duration}</span>
                         </div>
-                        <span className="font-body text-sm font-medium text-accent whitespace-nowrap">{sub.price}</span>
+                        <span className="font-body text-sm font-medium text-accent whitespace-nowrap">Book on Fresha →</span>
                       </div>
                     </a>
                   ))}
