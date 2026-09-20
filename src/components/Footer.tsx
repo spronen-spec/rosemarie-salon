@@ -10,7 +10,7 @@ const Footer = () => {
             <h3 className="font-display text-2xl mb-4">Rosemarie</h3>
             <p className="font-body text-xs text-primary-foreground/70 leading-relaxed">
               Beauty, cosmetic & personal care centre in the heart of Dubai JLT.
-              Premium treatments starting from 99 AED with a luxury finish.
+              Premium treatments with a refined luxury finish.
             </p>
           </div>
           <div>

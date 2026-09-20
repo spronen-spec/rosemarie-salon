@@ -63,6 +63,9 @@ const Hero = () => {
           <span className="font-body text-[10px] tracking-[0.2em] uppercase rounded-full border border-cream/30 bg-cream/5 px-3 py-2 text-cream/90">
             Open daily 10am–10pm
           </span>
+          <span className="font-body text-[10px] tracking-[0.2em] uppercase rounded-full border border-gold/40 bg-gold/10 px-3 py-2 text-gold-light">
+            Card • Tabby • Cash
+          </span>
         </motion.div>
 
         <motion.div
