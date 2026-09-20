@@ -77,11 +77,15 @@ const ReviewsSection = () => {
         >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-accent mb-4">What Our Clients Say</p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Client Reviews</h2>
-          <div className="flex items-center justify-center gap-1 mt-4">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} className="fill-accent text-accent" />
-            ))}
-            <span className="font-body text-sm text-muted-foreground ml-2">4.8 on Google · 45+ reviews</span>
+          <div className="mt-5 flex items-center justify-center gap-3 flex-wrap">
+            <div className="rounded-full border border-accent/20 bg-accent/5 px-4 py-2 shadow-sm">
+              <div className="flex items-center gap-1 justify-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="fill-accent text-accent" />
+                ))}
+              </div>
+            </div>
+            <span className="font-body text-sm text-muted-foreground">4.8 on Google · 45+ reviews</span>
           </div>
         </motion.div>
 

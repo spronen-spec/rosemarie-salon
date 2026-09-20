@@ -12,10 +12,27 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-accent mb-4">What We Offer</p>
           <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">Our Services</h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-10 flex flex-wrap items-center justify-center gap-2 md:gap-3"
+        >
+          {['Luxury salon & spa', 'Open daily 10am–10pm', 'Card · Tabby · Cash'].map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-border/70 bg-secondary/60 px-3 py-2 font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground"
+            >
+              {item}
+            </span>
+          ))}
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">

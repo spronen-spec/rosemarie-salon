@@ -11,7 +11,7 @@ const infoItems = [
   {
     icon: Clock,
     title: "Working Hours",
-    detail: "Daily 11:00 AM – 10:00 PM",
+    detail: "Daily 10:00 AM – 10:00 PM",
   },
   {
     icon: CreditCard,

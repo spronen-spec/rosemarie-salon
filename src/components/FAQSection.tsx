@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "What are your opening hours?",
     answer:
-      "We are open every day from 11:00 am to 10:00 pm, including weekends and public holidays.",
+      "We are open every day from 10:00 am to 10:00 pm, including weekends and public holidays.",
   },
   {
     question: "Where are you located and is there parking?",
